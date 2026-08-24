@@ -1,15 +1,9 @@
-function app() {
-  return (
-    <div>
-      <h1>Job Hunt Guru</h1>
-      </div>
-  )
-}
-
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import JobCard from './components/JobCard';
+import About from './components/About';
 
-function App() {
-  // An array filled with 6 realistic jobs containing data your platform highlights
+// Move the main job list into its own smaller component for clean routing
+function Home() {
   const jobList = [
     {
       id: 1,
@@ -50,7 +44,7 @@ function App() {
     {
       id: 5,
       title: "Data Analyst",
-      company: "FinMetrics Inc",
+FinMetrics Inc",
       pay: "$95,000 - $105,000 / year",
       hours: "Flexible hours (Core hours 10am - 3pm)",
       interview: "2 Rounds (SQL assessment & Panel talk)",
@@ -68,19 +62,37 @@ function App() {
   ];
 
   return (
-    <div style={{ padding: '24px', maxWidth: '700px', margin: '0 auto', fontFamily: 'sans-serif' }}>
+    <>
       <h1 style={{ textAlign: 'center', color: '#111', marginBottom: '4px' }}>Transparent Job Board</h1>
       <p style={{ textAlign: 'center', color: '#666', marginTop: '0', marginBottom: '32px' }}>
         Skip the guesswork. Upfront details on pay, hours, and expectations.
       </p>
-
-      {/* Looping through the array to turn each job object into a visual JobCard */}
       <div>
         {jobList.map((individualJob) => (
           <JobCard key={individualJob.id} job={individualJob} />
         ))}
       </div>
-    </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      {/* Navigation bar that stays at the top of every page */}
+      <nav style={{ backgroundColor: '#333', padding: '12px 24px', display: 'flex', gap: '20px', fontFamily: 'sans-serif' }}>
+        <Link to="/" style={{ color: '#fff', textDecoration: 'none', fontWeight: 'bold' }}>Home</Link>
+        <Link to="/about" style={{ color: '#fff', textDecoration: 'none', fontWeight: 'bold' }}>About Mission</Link>
+      </nav>
+
+      {/* Area where content swaps out dynamically based on the web address */}
+      <div style={{ padding: '24px', maxWidth: '700px', margin: '0 auto' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
