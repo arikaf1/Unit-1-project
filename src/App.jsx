@@ -2,21 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router';
 import JobCard from './components/JobCard';
 import About from './components/About';
+import NewJobForm from './components/NewJobForm';
 
 function Home() {
-  // 1. Set up state to hold our jobs list
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  // 1. Add state to track our conditional toggle setting
+  const [showHighPayOnly, setShowHighPayOnly] = useState(false);
 
-  // 2. Simulate fetching from a public network API using useEffect
   useEffect(() => {
-    // This represents your local or public API database data
     const mockApiData = [
       {
         id: 1,
         title: "Software Engineer",
         company: "TechCorp",
-        pay: "$110,000 - $130,000 / year",
+        pay: "$120,000 / year", // High pay
         hours: "40 hours/week (Hybrid)",
         interview: "3 Rounds (1 Phone, 1 Technical, 1 Manager)",
         review: "4.2/5 - 'Great work-life balance, slow promotion tracks.'"
@@ -25,50 +26,22 @@ function Home() {
         id: 2,
         title: "UX/UI Designer",
         company: "CreativeFlow Studio",
-        pay: "$85,000 / year",
+        pay: "$85,000 / year", // Standard pay
         hours: "35 hours/week (Fully Remote)",
         interview: "2 Rounds (Portfolio review & Design challenge)",
         review: "4.5/5 - 'Incredible design culture, fast-paced environment.'"
       },
       {
         id: 3,
-        title: "Customer Support Lead",
-        company: "ShipFast Logistics",
-        pay: "$28 / hour",
-        hours: "40 hours/week (Night Shift, 4pm - 12am)",
-        interview: "1 Round (30-minute phone screen)",
-        review: "3.8/5 - 'Good pay for the industry, but strict performance tracking.'"
-      },
-      {
-        id: 4,
-        title: "Junior Frontend Developer",
-        company: "LaunchPad Apps",
-        pay: "$70,000 / year",
-        hours: "40 hours/week (In-office)",
-        interview: "3 Rounds (Take-home project, Live coding, Culture fit)",
-        review: "4.0/5 - 'Perfect place to learn for juniors, lower starting salary.'"
-      },
-      {
-        id: 5,
         title: "Data Analyst",
         company: "FinMetrics Inc",
-        pay: "$95,000 - $105,000 / year",
+        pay: "$100,000 / year", // High pay
         hours: "Flexible hours (Core hours 10am - 3pm)",
         interview: "2 Rounds (SQL assessment & Panel talk)",
         review: "4.1/5 - 'Very collaborative data team, high expectations.'"
-      },
-      {
-        id: 6,
-        title: "Social Media Manager",
-        company: "GlowUp Cosmetics",
-        pay: "$32 / hour",
-        hours: "Part-time (20 hours/week)",
-        interview: "2 Rounds (Intro call & 1-page strategy brief)",
-        review: "4.6/5 - 'Amazing discounts, creative freedom, small team.'"
       }
     ];
 
-    // Simulate a 1-second network delay to mimic real API fetch calls
     const timer = setTimeout(() => {
       setJobs(mockApiData);
       setLoading(false);
@@ -77,7 +50,16 @@ function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  // 3. Show a loading message while waiting for the data to arrive
+  const handleAddNewJob = (newJobObject) => {
+    setJobs((prevJobs) => [newJobObject, ...prevJobs]);
+  };
+
+  // 2. Perform conditional filtering based on our toggle state selection
+  // If the toggle is active, it only passes jobs that earn $100k or more
+  const displayedJobs = showHighPayOnly
+    ? jobs.filter(job => job.pay.includes('$120,000') || job.pay.includes('$100,000'))
+    : jobs;
+
   if (loading) {
     return <h3 style={{ textAlign: 'center', fontFamily: 'sans-serif', color: '#666' }}>Loading transparent jobs...</h3>;
   }
@@ -88,11 +70,40 @@ function Home() {
       <p style={{ textAlign: 'center', color: '#666', marginTop: '0', marginBottom: '32px' }}>
         Skip the guesswork. Upfront details on pay, hours, and expectations.
       </p>
-      <div>
-        {jobs.map((individualJob) => (
-          <JobCard key={individualJob.id} job={individualJob} />
-        ))}
+
+      {/* 3. Conditional Button Control */}
+      <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+        <button 
+          onClick={() => setShowHighPayOnly(!showHighPayOnly)}
+          style={{
+            padding: '10px 18px',
+            backgroundColor: showHighPayOnly ? '#dc3545' : '#17a2b8',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '20px',
+            cursor: 'pointer',
+            fontWeight: 'bold'
+          }}
+        >
+          {showHighPayOnly ? 'Showing: High-Paying Roles 💰' : 'Filter: High-Paying Roles Only'}
+        </button>
       </div>
+
+      <NewJobForm onAddJob={handleAddNewJob} />
+
+      {/* 4. Conditional UI Rendering */}
+      {/* If our filtered array ends up empty, show a fallback notification text block */}
+      {displayedJobs.length === 0 ? (
+        <p style={{ textAlign: 'center', color: '#999', fontStyle: 'italic', marginTop: '32px' }}>
+          No jobs match this filter criteria right now.
+        </p>
+      ) : (
+        <div>
+          {displayedJobs.map((individualJob) => (
+            <JobCard key={individualJob.id} job={individualJob} />
+          ))}
+        </div>
+      )}
     </>
   );
 }
