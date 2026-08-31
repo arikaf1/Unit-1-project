@@ -44,26 +44,26 @@ function StatusTracker() {
         <h4 style={{ margin: '0 0 12px 0' }}>Log an Application Entry</h4>
         
         <label style={{ display: 'block', fontSize: '14px', marginBottom: '4px' }}>Job Title</label>
-        <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} className="w3-input" placeholder="e.g. Developer" />
+        <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} className="form-input-field" placeholder="e.g. Developer" />
 
         <label style={{ display: 'block', fontSize: '14px', marginBottom: '4px' }}>Company</label>
-        <input type="text" value={newCompany} onChange={(e) => setNewCompany(e.target.value)} className="w3-input" placeholder="e.g. Netflix" />
+        <input type="text" value={newCompany} onChange={(e) => setNewCompany(e.target.value)} className="form-input-field" placeholder="e.g. Netflix" />
 
         <label style={{ display: 'block', fontSize: '14px', marginBottom: '4px' }}>Current Stage</label>
-        <select value={newStatus} onChange={(e) => setNewStatus(e.target.value)} className="w3-input" style={{ background: '#fff', height: '38px' }}>
+        <select value={newStatus} onChange={(e) => setNewStatus(e.target.value)} className="form-input-field" style={{ background: '#fff', height: '38px' }}>
           <option value="Applied">Applied 📁</option>
           <option value="Interviewing">Interviewing 💬</option>
           <option value="Offered">Offered 🎉</option>
           <option value="Rejected">Closed ❌</option>
         </select>
 
-        <button type="submit" className="w3-btn" style={{ width: '100%', marginTop: '6px' }}>Add Log Entry</button>
+        <button type="submit" className="action-btn" style={{ width: '100%', marginTop: '6px' }}>Add Log Entry</button>
       </form>
 
       {/* Styled Grid list of tracked entries */}
-      <div className="w3-row">
+      <div className="grid-row">
         {trackedJobs.map((item) => (
-          <div key={item.id} className="w3-card" style={{ borderLeftColor: item.status === 'Offered' ? '#16a34a' : item.status === 'Interviewing' ? '#0284c7' : '#64748b' }}>
+          <div key={item.id} className="job-card-item" style={{ borderLeftColor: item.status === 'Offered' ? '#16a34a' : item.status === 'Interviewing' ? '#0284c7' : '#64748b' }}>
             <h4 style={{ margin: '0 0 4px 0' }}>{item.title}</h4>
             <h5 style={{ margin: '0 0 12px 0', color: '#666' }}>{item.company}</h5>
             <p style={{ margin: '4px 0', fontSize: '14px' }}>

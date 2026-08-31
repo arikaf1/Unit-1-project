@@ -34,17 +34,17 @@ function NewJobForm({ onAddJob }) {
       <h3 style={{ marginTop: '0', color: '#212F3D' }}>📢 Add Custom Job</h3>
       
       <label>Company Name</label>
-<input type="text" value={company} onChange={(e) => setCompany(e.target.value)} className="w3-input" placeholder="e.g. TechCorp" />
+<input type="text" value={company} onChange={(e) => setCompany(e.target.value)} className="form-input-field" placeholder="e.g. TechCorp" />
       <label>Job Title</label>
-      <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w3-input" placeholder="e.g. Developer" />
+      <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="form-input-field" placeholder="e.g. Developer" />
 
       <label>Upfront Pay</label>
-      <input type="text" value={pay} onChange={(e) => setPay(e.target.value)} className="w3-input" placeholder="e.g. $45 / hour" />
+      <input type="text" value={pay} onChange={(e) => setPay(e.target.value)} className="form-input-field" placeholder="e.g. $45 / hour" />
 
       <label>Hours / Schedule</label>
-      <input type="text" value={hours} onChange={(e) => setHours(e.target.value)} className="w3-input" placeholder="e.g. 40 hours/week" />
+      <input type="text" value={hours} onChange={(e) => setHours(e.target.value)} className="form-input-field" placeholder="e.g. 40 hours/week" />
 
-      <button type="submit" className="w3-btn" style={{ width: '100%', marginTop: "8px" }}>Add Job to Board</button>
+      <button type="submit" className="action-btn" style={{ width: '100%', marginTop: "8px" }}>Add Job to Board</button>
     </form>
   );
 }

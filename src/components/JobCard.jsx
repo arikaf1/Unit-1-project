@@ -9,7 +9,7 @@ function JobCard({ job }) {
   };
 
   return (
-    <div className="w3-card">
+    <div className="job-card-item">
       <h3 style={{ margin: "0 0 4px 0", color: "#212F3D" }}>{job.title}</h3>
       <h4 style={{ margin: "0 0 12px 0", color: "#666" }}>{job.company}</h4>
       
@@ -21,7 +21,7 @@ function JobCard({ job }) {
       <button 
         onClick={handleApply} 
         disabled={applied}
-        className="w3-btn"
+        className="action-btn"
         style={{ marginTop: "12px", backgroundColor: applied ? "#bbb" : "#04AA6D" }}
       >
         {applied ? 'Applied ✓' : 'One-Click Apply'}

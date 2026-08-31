@@ -106,11 +106,11 @@ function Home() {
 function App() {
   return (
     <BrowserRouter>
-      <nav className="w3-navbar">
-  <Link to="/" className="w3-navitem">Home</Link>
-  <Link to="/about" className="w3-navitem">About Mission</Link>
+      <nav className="NavigationBar">
+  <Link to="/" className="navitem">Home</Link>
+  <Link to="/about" className="navitem">About Mission</Link>
   {/* Add this new link item right here: */}
-  <Link to="/tracker" className="w3-navitem">Status Tracker</Link>
+  <Link to="/tracker" className="navitem">Status Tracker</Link>
 </nav>
 
       <div className="app-container">

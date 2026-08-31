@@ -1,11 +1,11 @@
 /* Top Heading Banner Bar */
-.w3-navbar {
-  background-color: var(--w3-dark);
+.navbar {
+  background-color: #212F3D;
   overflow: hidden;
   display: flex;
 }
 
-.w3-navitem {
+.navitem {
   float: left;
   color: #ffffff;
   text-align: center;
@@ -14,54 +14,53 @@
   font-weight: 500;
 }
 
-.w3-navitem:hover {
+.navitem:hover {
   background-color: #000000;
   color: #ffffff;
 }
 
 /* Page Layout Container Structure */
-.w3-container {
+.layout-container {
   max-width: 900px;
   margin: 30px auto;
   padding: 20px;
-  background-color: var(--w3-card-bg);
+  background-color: #ffffff;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
   border-radius: 4px;
 }
 
-/* W3Schools Classic Grid Layout for Multi-Card Columns */
-.w3-row {
+/* Multi-Card Grid Rows */
+.grid-row {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 20px;
 }
 
-/* Card Container layout rules */
-.w3-card {
+/* Card Container */
+.job-card-item {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
   padding: 16px;
   background-color: #ffffff;
-  border-left: 6px solid var(--w3-green); /* Distinctive tutorial container left border bar accent */
-  flex: 1 1 calc(50% - 16px); /* Clean side-by-side layouts */
+  border-left: 6px solid #04AA6D; /* Clean layout accent bar */
+  flex: 1 1 calc(50% - 16px);
   min-width: 280px;
   box-sizing: border-box;
 }
 
-/* Standard Input elements styled to resemble practice panels */
-.w3-input {
+/* Standard Inputs and Buttons */
+.form-input-field {
   padding: 10px;
   display: block;
-  border: 1px solid var(--w3-border);
+  border: 1px solid #cccccc;
   width: 100%;
   margin-bottom: 12px;
   box-sizing: border-box;
   font-size: 15px;
 }
 
-/* Action button profile styling matching tutorial selectors */
-.w3-btn {
-  background-color: var(--w3-green);
+.action-btn {
+  background-color: #04AA6D;
   color: white;
   padding: 12px 24px;
   border: none;
@@ -71,6 +70,6 @@
   text-align: center;
 }
 
-.w3-btn:hover {
+.action-btn:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
