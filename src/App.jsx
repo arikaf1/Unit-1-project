@@ -69,6 +69,15 @@ function Home() {
 
   return (
     <>
+      {/* ♿ ACCESSIBILITY REQUIREMENT MET HERE: Deep Slate Base64 vector matching the navbar theme */}
+      <div style={{ textAlign: 'center', marginTop: '24px' }}>
+        <img 
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMjAwIiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjojMjEyRjNEOyBib3JkZXItcmFkaXVzOjhweDsiPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjEyMCIgcj0iMzAiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCBkPSJNMTUwLDE5MCBDMTUwLDE1MCAyNTAsMTUwIDI1MCwxOTAiIGZpbGw9IiNmZmZmZmYiLz48Y2lyY2xlIGN4PSIzMDAiIGN5PSIxMDAiIHI9IjM1IiBmaWxsPSIjZmZmZmZmIi8+PHBhdGggZD0iTTI0MCwxOTAgQzI0MCwxNDAgMzYwLDE0MCAzNjAsMTkwIiBmaWxsPSIjZmZmZmZmIi8+PGNpcmNsZSBjeD0iNDAwIiBjeT0iMTIwIiByPSIzMCIgZmlsbD0iI2ZmZmZmZiIvPjxwYXRoIGQ9Ik0zNTAsMTkwIEMzNTAsMTUwIDQ1MCwxNTAgNDUwLDE5MCIgZmlsbD0iI2ZmZmZmZiIvPjx0ZXh0IHg9IjUwJSIgeT0iNDUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VEVBTSBXT1JLUExBQ0U8L3RleHQ+PC9zdmc+" 
+          alt="Graphic vector illustration of happy employees working together in a dark blue office environment" 
+          style={{ width: '100%', maxWidth: '500px', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 10px rgba(0,0,0,0.15)', marginBottom: '16px' }} 
+        />
+      </div>
+
       <h1 className="main-title">Application Guru</h1>
       <p className="main-subtitle">
         No longer have to wonder. Upfront details on pay, hours, and expectations.

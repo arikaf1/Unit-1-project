@@ -61,7 +61,7 @@
 }
 
 .action-btn {
-  background-color: #04AA6D;
+  background-color: #212F3D; /* Updated to match your dark blue navigation bar */
   color: white;
   padding: 12px 24px;
   border: none;
