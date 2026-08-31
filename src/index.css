@@ -1,1 +1,22 @@
+/* W3Schools Signature Theme Palette */
+:root {
+  --w3-bg: #f1f1f1;
+  --w3-text: #000000;
+  --w3-green: #04AA6D; /* Signature W3Schools Green button color */
+  --w3-dark: #212F3D;  /* Deep slate banner color */
+  --w3-border: #cccccc;
+  --w3-card-bg: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--w3-bg);
+  color: var(--w3-text);
+  font-family: "Segoe UI", Arial, sans-serif; /* Standard W3Schools typography */
+}
+
+a {
+  text-decoration: none;
+}
 

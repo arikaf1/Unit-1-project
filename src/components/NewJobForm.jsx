@@ -1,37 +1,28 @@
 import React, { useState } from 'react';
 
 function NewJobForm({ onAddJob }) {
-  // Set up state variables for each text input field
   const [title, setTitle] = useState('');
   const [company, setCompany] = useState('');
   const [pay, setPay] = useState('');
   const [hours, setHours] = useState('');
 
-  // Custom function to handle the form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents the browser page from reloading
-    
-    // Quick validation to ensure fields aren't completely blank
+    e.preventDefault();
     if (!title || !company || !pay || !hours) {
       alert('Please fill out all transparent metrics fields!');
       return;
     }
 
-    // Create a new structured job object matching your data model
-    const newJob = {
-      id: Date.now(), // Generates a unique ID using the timestamp
+    onAddJob({
+      id: Date.now(),
       title,
       company,
       pay,
       hours,
       interview: "Not Specified Yet",
       review: "No Reviews Posted"
-    };
+    });
 
-    // Pass the new object back up to the major parent component
-    onAddJob(newJob);
-
-    // Clear out the input boxes so they are blank again
     setTitle('');
     setCompany('');
     setPay('');
@@ -39,32 +30,21 @@ function NewJobForm({ onAddJob }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ border: '2px dashed #007bff', padding: '20px', borderRadius: '8px', marginBottom: '32px', fontFamily: 'sans-serif' }}>
-      <h3 style={{ marginTop: '0', color: '#007bff' }}>📢 Post a New Transparent Job</h3>
+    <form onSubmit={handleSubmit} style={{ border: "1px solid #ccc", padding: "20px", marginBottom: "30px", background: "#fdfdfd" }}>
+      <h3 style={{ marginTop: '0', color: '#212F3D' }}>📢 Add Custom Job</h3>
       
-      <div style={{ marginBottom: '12px' }}>
-        <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '4px' }}>Job Title:</label>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }} placeholder="e.g. Backend Developer" />
-      </div>
+      <label>Company Name</label>
+<input type="text" value={company} onChange={(e) => setCompany(e.target.value)} className="w3-input" placeholder="e.g. TechCorp" />
+      <label>Job Title</label>
+      <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w3-input" placeholder="e.g. Developer" />
 
-      <div style={{ marginBottom: '12px' }}>
-        <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '4px' }}>Company Name:</label>
-        <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }} placeholder="e.g. Innovate LLC" />
-      </div>
+      <label>Upfront Pay</label>
+      <input type="text" value={pay} onChange={(e) => setPay(e.target.value)} className="w3-input" placeholder="e.g. $45 / hour" />
 
-      <div style={{ marginBottom: '12px' }}>
-        <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '4px' }}>Upfront Pay Range:</label>
-        <input type="text" value={pay} onChange={(e) => setPay(e.target.value)} style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }} placeholder="e.g. $45 / hour or $90,000 / year" />
-      </div>
+      <label>Hours / Schedule</label>
+      <input type="text" value={hours} onChange={(e) => setHours(e.target.value)} className="w3-input" placeholder="e.g. 40 hours/week" />
 
-      <div style={{ marginBottom: '16px' }}>
-        <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '4px' }}>Weekly Hours / Schedule:</label>
-        <input type="text" value={hours} onChange={(e) => setHours(e.target.value)} style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }} placeholder="e.g. 40 hours/week (Fully Remote)" />
-      </div>
-
-      <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', width: '100%' }}>
-        Add Job to Board
-      </button>
+      <button type="submit" className="w3-btn" style={{ width: '100%', marginTop: "8px" }}>Add Job to Board</button>
     </form>
   );
 }

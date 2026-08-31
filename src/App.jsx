@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router';
 import JobCard from './components/JobCard';
+import './App.css';
 import About from './components/About';
 import NewJobForm from './components/NewJobForm';
+import StatusTracker from './components/StatusTracker';
+
 
 function Home() {
   const [jobs, setJobs] = useState([]);
@@ -66,31 +69,23 @@ function Home() {
 
   return (
     <>
-      <h1 style={{ textAlign: 'center', color: '#111', marginBottom: '4px' }}>Transparent Job Board</h1>
-      <p style={{ textAlign: 'center', color: '#666', marginTop: '0', marginBottom: '32px' }}>
+      <h1 className="main-title">Transparent Job Board</h1>
+      <p className="main-subtitle">
         Skip the guesswork. Upfront details on pay, hours, and expectations.
       </p>
 
-      {/* 3. Conditional Button Control */}
-      <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+      <div className="filter-btn-container">
         <button 
           onClick={() => setShowHighPayOnly(!showHighPayOnly)}
-          style={{
-            padding: '10px 18px',
-            backgroundColor: showHighPayOnly ? '#dc3545' : '#17a2b8',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '20px',
-            cursor: 'pointer',
-            fontWeight: 'bold'
-          }}
+          className="filter-btn"
+          style={{ backgroundColor: showHighPayOnly ? '#dc3545' : '#17a2b8' }}
         >
           {showHighPayOnly ? 'Showing: High-Paying Roles 💰' : 'Filter: High-Paying Roles Only'}
         </button>
       </div>
 
       <NewJobForm onAddJob={handleAddNewJob} />
-
+      {/* ... keep your jobs mapping code loop exactly the same ... */}
       {/* 4. Conditional UI Rendering */}
       {/* If our filtered array ends up empty, show a fallback notification text block */}
       {displayedJobs.length === 0 ? (
@@ -111,19 +106,22 @@ function Home() {
 function App() {
   return (
     <BrowserRouter>
-      <nav style={{ backgroundColor: '#333', padding: '12px 24px', display: 'flex', gap: '20px', fontFamily: 'sans-serif' }}>
-        <Link to="/" style={{ color: '#fff', textDecoration: 'none', fontWeight: 'bold' }}>Home</Link>
-        <Link to="/about" style={{ color: '#fff', textDecoration: 'none', fontWeight: 'bold' }}>About Mission</Link>
-      </nav>
+      <nav className="w3-navbar">
+  <Link to="/" className="w3-navitem">Home</Link>
+  <Link to="/about" className="w3-navitem">About Mission</Link>
+  {/* Add this new link item right here: */}
+  <Link to="/tracker" className="w3-navitem">Status Tracker</Link>
+</nav>
 
-      <div style={{ padding: '24px', maxWidth: '700px', margin: '0 auto' }}>
+      <div className="app-container">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+  {/* Add this matching route configuration right here: */}
+  <Route path="/tracker" element={<StatusTracker />} />
+</Routes>
       </div>
     </BrowserRouter>
   );
 }
-
 export default App;

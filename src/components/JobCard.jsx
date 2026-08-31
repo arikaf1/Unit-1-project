@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// We pass "job" as a prop into the function
 function JobCard({ job }) {
   const [applied, setApplied] = useState(false);
 
@@ -10,28 +9,25 @@ function JobCard({ job }) {
   };
 
   return (
-    <div style={{ border: '1px solid #ddd', padding: '20px', borderRadius: '8px', margin: '16px 0', backgroundColor: '#f9f9f9', fontFamily: 'sans-serif' }}>
-      <h2 style={{ margin: '0 0 8px 0', color: '#333' }}>{job.title}</h2>
-      <h3 style={{ margin: '0 0 16px 0', color: '#666', fontSize: '1.1rem' }}>{job.company}</h3>
+    <div className="w3-card">
+      <h3 style={{ margin: "0 0 4px 0", color: "#212F3D" }}>{job.title}</h3>
+      <h4 style={{ margin: "0 0 12px 0", color: "#666" }}>{job.company}</h4>
       
-      {/* Upfront transparency metrics based on your brainstorming notes */}
-      <div style={{ marginBottom: '16px', fontSize: '0.95rem', lineHeight: '1.5' }}>
-        <div>💵 <strong>Pay:</strong> {job.pay}</div>
-        <div>⏱️ <strong>Hours:</strong> {job.hours}</div>
-        <div>💬 <strong>Interview Process:</strong> {job.interview}</div>
-        <div>⭐ <strong>Employee Review:</strong> {job.review}</div>
-      </div>
-
+      <p style={{ margin: "4px 0" }}><strong>💵 Pay:</strong> {job.pay}</p>
+      <p style={{ margin: "4px 0" }}><strong>⏱️ Hours:</strong> {job.hours}</p>
+      <p style={{ margin: "4px 0" }}><strong>💬 Interviews:</strong> {job.interview}</p>
+      <p style={{ margin: "4px 0" }}><strong>⭐ Reviews:</strong> {job.review}</p>
+      
       <button 
         onClick={handleApply} 
         disabled={applied}
-        style={{ padding: '10px 20px', backgroundColor: applied ? '#6c757d' : '#28a745', color: '#fff', border: 'none', borderRadius: '4px', cursor: applied ? 'not-allowed' : 'pointer', fontWeight: 'bold' }}
+        className="w3-btn"
+        style={{ marginTop: "12px", backgroundColor: applied ? "#bbb" : "#04AA6D" }}
       >
-        {applied ? 'Applied ✔' : 'One-Click Apply'}
+        {applied ? 'Applied ✓' : 'One-Click Apply'}
       </button>
     </div>
   );
 }
 
 export default JobCard;
-
