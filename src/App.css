@@ -3,15 +3,16 @@
   background-color: #212F3D;
   overflow: hidden;
   display: flex;
+  padding: 0 10px;
 }
 
 .navitem {
-  float: left;
   color: #ffffff;
   text-align: center;
   padding: 14px 20px;
   font-size: 17px;
   font-weight: 500;
+  display: inline-block;
 }
 
 .navitem:hover {

@@ -69,9 +69,9 @@ function Home() {
 
   return (
     <>
-      <h1 className="main-title">Transparent Job Board</h1>
+      <h1 className="main-title">Application Guru</h1>
       <p className="main-subtitle">
-        Skip the guesswork. Upfront details on pay, hours, and expectations.
+        No longer have to wonder. Upfront details on pay, hours, and expectations.
       </p>
 
       <div className="filter-btn-container">
@@ -106,22 +106,27 @@ function Home() {
 function App() {
   return (
     <BrowserRouter>
-      <nav className="NavigationBar">
-  <Link to="/" className="navitem">Home</Link>
-  <Link to="/about" className="navitem">About Mission</Link>
-  {/* Add this new link item right here: */}
-  <Link to="/tracker" className="navitem">Status Tracker</Link>
-</nav>
+      <header>
+        <nav className="navbar">
+          <Link to="/" className="navitem">Home</Link>
+          <Link to="/about" className="navitem">About Mission</Link>
+          <Link to="/tracker" className="navitem">Status Tracker</Link>
+        </nav>
+      </header>
 
-      <div className="app-container">
+      <main className="layout-container">
         <Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/about" element={<About />} />
-  {/* Add this matching route configuration right here: */}
-  <Route path="/tracker" element={<StatusTracker />} />
-</Routes>
-      </div>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/tracker" element={<StatusTracker />} />
+        </Routes>
+      </main>
+
+      <footer style={{ backgroundColor: '#212F3D', color: '#ffffff', textAlign: 'center', padding: '16px', marginTop: '40px', fontSize: '14px', fontFamily: 'sans-serif' }}>
+        <p>© 2026 Application Guru. Built for LaunchCode Project Submissions.</p>
+      </footer>
     </BrowserRouter>
   );
 }
+
 export default App;
