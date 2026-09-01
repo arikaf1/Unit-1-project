@@ -19,7 +19,7 @@ function Home() {
         id: 1,
         title: "Software Engineer",
         company: "TechCorp",
-        pay: "$120,000 / year", // High pay
+        pay: "$120,000 / year",
         hours: "40 hours/week (Hybrid)",
         interview: "3 Rounds (1 Phone, 1 Technical, 1 Manager)",
         review: "4.2/5 - 'Great work-life balance, slow promotion tracks.'"
@@ -28,7 +28,7 @@ function Home() {
         id: 2,
         title: "UX/UI Designer",
         company: "CreativeFlow Studio",
-        pay: "$85,000 / year", // Standard pay
+        pay: "$85,000 / year",
         hours: "35 hours/week (Fully Remote)",
         interview: "2 Rounds (Portfolio review & Design challenge)",
         review: "4.5/5 - 'Incredible design culture, fast-paced environment.'"
@@ -37,7 +37,7 @@ function Home() {
         id: 3,
         title: "Data Analyst",
         company: "FinMetrics Inc",
-        pay: "$100,000 / year", // High pay
+        pay: "$100,000 / year",
         hours: "Flexible hours (Core hours 10am - 3pm)",
         interview: "2 Rounds (SQL assessment & Panel talk)",
         review: "4.1/5 - 'Very collaborative data team, high expectations.'"

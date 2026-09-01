@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 
 function NewJobForm({ onAddJob }) {
-  const [title, setTitle] = useState('');
-  const [company, setCompany] = useState('');
-  const [pay, setPay] = useState('');
-  const [hours, setHours] = useState('');
+  const [title, setTitle] = useState("");
+  const [company, setCompany] = useState("");
+  const [pay, setPay] = useState("");
+  const [hours, setHours] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title || !company || !pay || !hours) {
-      alert('Please fill out all transparent metrics fields!');
-      return;
-    }
-
     onAddJob({
       id: Date.now(),
       title,
@@ -22,13 +17,12 @@ function NewJobForm({ onAddJob }) {
       interview: "Not Specified Yet",
       review: "No Reviews Posted"
     });
-
-    setTitle('');
-    setCompany('');
-    setPay('');
-    setHours('');
+    setTitle("");
+    setCompany("");
+    setPay("");
+    setHours("");
   };
-
+  
   return (
     <form onSubmit={handleSubmit} style={{ border: "1px solid #ccc", padding: "20px", marginBottom: "30px", background: "#fdfdfd" }}>
       <h3 style={{ marginTop: '0', color: '#212F3D' }}>📢 Add Custom Job</h3>
